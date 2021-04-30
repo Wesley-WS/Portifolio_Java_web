@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(description = "Este é o primeiro servlet", urlPatterns = { "/PrimeiroServlet" })
 public class PrimeiroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private int acessos = 0;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,6 +29,7 @@ public class PrimeiroServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		acessos++;
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -37,7 +38,7 @@ public class PrimeiroServlet extends HttpServlet {
 		out.println("<BODY>");
 		out.print("Esta é a ");
 		out.print(this.getClass());
-		out.println(" usando o método GET");
+		out.println(" usando o método GET, com o numero de acessos = "+acessos);
 		out.println(" </BODY>");
 		out.println("</HTML>");
 		out.flush();
